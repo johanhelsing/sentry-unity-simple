@@ -26,7 +26,7 @@ public class SentrySdk : MonoBehaviour
     [Header("Enable auto generate breadcrumb")]
     public bool AutoGenerateBreadcrumb = true;
     [Header("Enable SDK debug messages")]
-    public bool Debug = true;
+    public bool Debug = false;
     [Header("Override game version")]
     public string Version = "";
 
