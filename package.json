@@ -1,8 +1,8 @@
 {
-  "name": "io.sentry.sentry-unity-lite",
-  "version": "1.0.2",
-  "displayName": "Sentry Unity Lite",
-  "description": "Sentry SDK for Unity",
+  "name": "com.johanhelsing.sentry-unity-simple",
+  "version": "1.0.4",
+  "displayName": "Sentry Unity Simple",
+  "description": "Sentry Client for Unity",
   "unity": "2018.1",
   "license": "MIT",
   "keywords": [
@@ -10,9 +10,9 @@
     "diagnostics"
   ],
   "author": {
-    "name": "Sentry Application Monitoring",
-    "email": "oss@sentry.io",
-    "url": "https://github.com/getsentry/sentry-unity-lite"
+    "name": "Johan Helsing",
+    "email": "johanhelsing@gmail.com",
+    "url": "https://github.com/johanhelsing/sentry-unity-simple"
   },
   "samples": [
     {
