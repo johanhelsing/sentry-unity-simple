@@ -1,7 +1,4 @@
 using System;
-#if UNITY_5
-using System.Collections;
-#endif
 using System.Collections.Generic;
 using System.Text;
 using Newtonsoft.Json;
@@ -347,11 +344,7 @@ public class SentrySdk : MonoBehaviour
         ModifySentryEvent?.Invoke(@event);
     }
 
-    private IEnumerator
-#if !UNITY_5
-        <UnityWebRequestAsyncOperation>
-#endif
-        ContinueSendingEvent<T>(T @event)
+    private IEnumerator<UnityWebRequestAsyncOperation> ContinueSendingEvent<T>(T @event)
         where T : SentryEvent
     {
         PrepareEvent(@event);
@@ -374,23 +367,13 @@ public class SentrySdk : MonoBehaviour
         www.SetRequestHeader("X-Sentry-Auth", authString);
         www.uploadHandler = new UploadHandlerRaw(Encoding.UTF8.GetBytes(jsonString));
         www.downloadHandler = new DownloadHandlerBuffer();
-#if UNITY_5
-        yield return www.Send();
-#else
         yield return www.SendWebRequest();
-#endif
 
         while (!www.isDone)
         {
             yield return null;
         }
-        if (
-#if UNITY_5
-            www.isError
-#else
-            www.isNetworkError || www.isHttpError
-#endif
-             || www.responseCode != 200)
+        if (www.isNetworkError || www.isHttpError || www.responseCode != 200)
         {
             UnityDebug.LogWarning("error sending request to sentry: " + www.error);
         }
