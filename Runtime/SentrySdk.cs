@@ -22,7 +22,7 @@ public class SentrySdk : MonoBehaviour
     [Header("DSN of your sentry instance")]
     public string Dsn;
     [Header("Send PII like User and Computer names")]
-    public bool SendDefaultPii = true;
+    public bool SendDefaultPii = false;
     [Header("Enable auto generate breadcrumb")]
     public bool AutoGenerateBreadcrumb = false;
     [Header("Enable SDK debug messages")]
