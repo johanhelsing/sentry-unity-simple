@@ -24,7 +24,7 @@ public class SentrySdk : MonoBehaviour
     [Header("Send PII like User and Computer names")]
     public bool SendDefaultPii = false;
     [Header("Enable auto generate breadcrumb")]
-    public bool AutoGenerateBreadcrumb = false;
+    public bool AutoGenerateBreadcrumb = true;
     [Header("Enable SDK debug messages")]
     public bool Debug = true;
     [Header("Override game version")]
