@@ -1,25 +1,42 @@
-<p align="center">
-  <a href="https://sentry.io" target="_blank" align="center">
-    <img src="https://sentry-brand.storage.googleapis.com/sentry-logo-black.png" width="280">
-  </a>
-  <br />
-</p>
+# Sentry Unity Simple
 
-_Bad software is everywhere, and we're tired of it. Sentry is on a mission to help developers write better software faster, so we can get back to enjoying technology. If you want to join us [<kbd>**Check out our open positions**</kbd>](https://sentry.io/careers/)_
+This is an unofficial Sentry Client for Unity, with a focus on keeping it
+simple stupid.
 
-Sentry (lite) SDK for Unity
-===========
+It was forked from the official Sentry Unity Lite in order to add new features.
 
-> This is the stable Sentry SDK for Unity. It's running in production in many games and sends millions of events every month to [sentry.io](sentry.io).
-If you are used to other Sentry SDKs, you might find that the API here is smaller. This is by design, and this SDK is lightweight and compile with your game.
-It supports any platform that you can target with Unity.
+It sends error logs to a sentry server on exceptions, Debug.LogError and
+Debug.LogException.
 
-**Sentry is working on a complete SDK for Unity with features such as Release Health, Native Crash Reporting and Performance Monitoring.
-If you'd like to learn more check out [sentry-unity](https://github.com/getsentry/sentry-unity) or join us on Discord, #unity: [![Discord Chat](https://img.shields.io/discord/621778831602221064?logo=discord&logoColor=ffffff&color=7389D8)](https://discord.gg/PXa5Apfe7K)**
+## Why this project exists
 
-# We are currently not accepting PRs for new features on this repository.
+This project was forked from the official stable client, [Sentry Unity
+Lite](https://github.com/getsentry/sentry-unity-lite), which is no longer
+accepting pull-requests for new features, despite lacking the following:
 
-Bug fixes are most welcomed and we'll continue to support the code base for security and bug fixes. But any new development, [refer to Sentry Unity](https://github.com/getsentry/sentry-unity).
+- Distinction between Debug.LogWarning and Debug.Log
+- Toggle sending logs in editor
+- Adding extra tags
+- It also defaults to sending PII data
+
+There is [a new official client](https://github.com/getsentry/sentry-unity) in
+development which will fix these issues, however I personally don't like it
+because:
+
+- The installed package doesn't contain the source code, but instead uses
+  .dll-s built in a separate step.
+- Building the package requires separate tools
+- It has a *lot* of features, like getting C++ stack traces on Android,
+  performance monitoring, release health. That may be nice, but I just want
+  error reporting with simple but useful features.
+
+In short, I wanted a small project that doesn't require a complex build
+procedure and is easy to reason about and contribute to, but Sentry Unity Lite
+didn't have the features I needed, and is no longer accepting PRs.
+
+If you are used to other Sentry SDKs, you might find that the API here is
+smaller. This is by design, and this SDK is lightweight and compile with your
+game. It supports any platform that you can target with Unity.
 
 ### Installation
 
@@ -30,7 +47,7 @@ Bug fixes are most welcomed and we'll continue to support the code base for secu
 Open the package manager, click the + icon, and add git url.
 
 ```
-https://github.com/getsentry/sentry-unity-lite.git#1.0.3
+https://github.com/johanhelsing/sentry-unity-simple.git#1.0.4
 ```
 
 #### Through unitypackage
@@ -86,19 +103,5 @@ run headless. There are two important APIs that are worth considering.
 
 ### Unity version
 
-The lowest required version is Unity 5.6.
-Previous versions might work but were not tested and will not be supported.
-
-
-### Native Crash Support
-
-Sentry is [working on a Unity SDK](https://github.com/getsentry/sentry-unity) based on the .NET SDK which includes offline caching and native crashes.
-Previews of that package are available. If you'd like to get involved in the SDK development, you can [join Sentry's Discord server and say hi on the `#unity` channel](https://discord.gg/UmjjsgRAFa).
-
-## Resources
-
-* [![Documentation](https://img.shields.io/badge/documentation-sentry.io-green.svg)](https://docs.sentry.io/platforms/dotnet/)
-* [![Forum](https://img.shields.io/badge/forum-sentry-green.svg)](https://forum.sentry.io/c/sdks)
-* [![Discord Chat](https://img.shields.io/discord/621778831602221064?logo=discord&logoColor=ffffff&color=7389D8)](https://discord.gg/PXa5Apfe7K)  
-* [![Stack Overflow](https://img.shields.io/badge/stack%20overflow-sentry-green.svg)](http://stackoverflow.com/questions/tagged/sentry)
-* [![Twitter Follow](https://img.shields.io/twitter/follow/getsentry?label=getsentry&style=social)](https://twitter.com/intent/follow?screen_name=getsentry)
+The lowest required version is Unity 2018.4. Previous versions might work but
+were not tested and will not be supported.
