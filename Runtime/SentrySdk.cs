@@ -19,11 +19,11 @@ public class SentrySdk : MonoBehaviour
     [Header("DSN of your sentry instance")]
     public string Dsn;
     [Header("Send PII like User and Computer names")]
-    public bool SendDefaultPii = true;
+    public bool SendDefaultPii = false;
     [Header("Enable auto generate breadcrumb")]
-    public bool AutoGenerateBreadcrumb = false;
+    public bool AutoGenerateBreadcrumb = true;
     [Header("Enable SDK debug messages")]
-    public bool Debug = true;
+    public bool Debug = false;
     [Header("Override game version")]
     public string Version = "";
 
