@@ -86,9 +86,8 @@ run headless. There are two important APIs that are worth considering.
 
 ### Unity version
 
-The lowest required version is Unity 5.6.
-Previous versions might work but were not tested and will not be supported.
-
+The lowest required version is Unity 2018.4. Previous versions might work, but
+were not tested and will not be supported.
 
 ### Native Crash Support
 
