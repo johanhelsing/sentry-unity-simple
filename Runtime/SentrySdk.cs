@@ -27,6 +27,9 @@ public class SentrySdk : MonoBehaviour
     [Header("Override game version")]
     public string Version = "";
 
+    [Header("Misc")]
+    [SerializeField] bool _enableInEditor;
+
     private string _lastErrorMessage = "";
     private Dsn _dsn;
     private bool _initialized = false;
@@ -37,6 +40,14 @@ public class SentrySdk : MonoBehaviour
 
     public void Start()
     {
+#if UNITY_EDITOR
+        if (!_enableInEditor)
+        {
+            UnityDebug.Log("Sentry: Not reporting errors in editor");
+            Destroy(this);
+        }
+#endif
+
         if (Dsn == string.Empty)
         {
             // Empty string = disabled SDK
